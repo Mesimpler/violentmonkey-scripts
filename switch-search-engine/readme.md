@@ -6,4 +6,4 @@
 
 ## 安装
 
-[Greasy Fork]()
+[Greasy Fork](https://greasyfork.org/zh-CN/scripts/490645-switch-search-engine)
