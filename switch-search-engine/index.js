@@ -11,6 +11,7 @@
 // @version     1.0
 // @author      mesimpler
 // @description 2024/3/23 15:11:56
+// @license     MIT
 // ==/UserScript==
 
 const engines = [
