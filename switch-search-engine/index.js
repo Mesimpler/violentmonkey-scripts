@@ -1,14 +1,16 @@
 // ==UserScript==
 // @name        switch-search-engine
 // @namespace   Violentmonkey Scripts
-// @match       https://*.bing.com/search*
-// @match       https://*.baidu.com/s*
-// @match       https://*.google.com/search*
+// @match       https://www.bing.com/search*
+// @match       https://cn.bing.com/search*
+// @match       https://www.baidu.com/s*
+// @match       https://www.google.com/search*
+// @match       https://hk.google.com/search*
 // @match       https://*.search.yahoo.com/search*
-// @match       https://*.sogou.com/web*
+// @match       https://www.sogou.com/web*
 // @grant       GM_addStyle
 // @grant       GM_openInTab
-// @version     1.0
+// @version     1.0.1
 // @author      mesimpler
 // @description 2024/3/23 15:11:56
 // @license     MIT
