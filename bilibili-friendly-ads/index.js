@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        bilibili-friendly-ads
 // @namespace   Violentmonkey Scripts
-// @match       https://www.bilibili.com
+// @match       https://www.bilibili.com/
 // @grant       none
 // @version     2.0
 // @author      mesimpler
