@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://www.bilibili.com
 // @grant       none
-// @version     2.0
+// @version     1.1
 // @author      mesimpler
 // @description use gray picture to replace bili homepage ads.
 // @require     https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js
