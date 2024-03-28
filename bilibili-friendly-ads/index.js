@@ -35,7 +35,6 @@ function replaceAds() {
     skeleton = document
       .querySelector(".bili-video-card__skeleton")
       .cloneNode(true);
-    console.log(skeleton);
     skeleton.classList.remove("hide");
     const cover = skeleton.querySelector(".bili-video-card__skeleton--cover");
     cover.style = `position: relative;`;
@@ -46,7 +45,6 @@ function replaceAds() {
   let ads = document.querySelectorAll(
     '.bili-video-card:has(a[href*="cm.bilibili.com"][data-target-url]:not([data-target-url*=".bilibili.com/"]))'
   );
-  console.log(ads);
   ads.forEach((ad) => {
     const ad_wrap = ad.querySelector(".bili-video-card__wrap");
     ad_wrap.remove();
