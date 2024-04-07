@@ -2,115 +2,80 @@
 // @name        bilibili-roll-history
 // @namespace   Violentmonkey Scripts
 // @match       https://www.bilibili.com/
-// @grant       GM_addStyle
-// @version     1.0
+// @run-at      document-start
+// @grant       none
+// @version     1.1
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
-// @description 2024/3/22 21:28:21
+// @description add roll history btn in bilibili home page.
 // @license     MIT
 // ==/UserScript==
 const feedHistory = [];
 const maxHistory = 10;
 let feedHistoryIndex = 0;
 
-const feedRollBackBtn = `
-<button id="feed-roll-back-btn" class="primary-btn feed-roll-back-btn biliplus-disabled">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.82843 6.99955L8.36396 9.53509L6.94975 10.9493L2 5.99955L6.94975 1.0498L8.36396 2.46402L5.82843 4.99955H13C17.4183 4.99955 21 8.58127 21 12.9996C21 17.4178 17.4183 20.9996 13 20.9996H4V18.9996H13C16.3137 18.9996 19 16.3133 19 12.9996C19 9.68584 16.3137 6.99955 13 6.99955H5.82843Z"></path></svg>
-</button>
-`;
-
-const feedRollNextBtn = `
-<button id="feed-roll-next-btn" class="primary-btn feed-roll-next-btn biliplus-disabled">
+const nextBtn = GM_createElement(`
+<button id="feed-roll-next-btn" class="primary-btn feed-roll-next-btn btn-disabled">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.1716 6.99955H11C7.68629 6.99955 5 9.68584 5 12.9996C5 16.3133 7.68629 18.9996 11 18.9996H20V20.9996H11C6.58172 20.9996 3 17.4178 3 12.9996C3 8.58127 6.58172 4.99955 11 4.99955H18.1716L15.636 2.46402L17.0503 1.0498L22 5.99955L17.0503 10.9493L15.636 9.53509L18.1716 6.99955Z"></path></svg>
 </button>
-`;
+`);
+const backBtn = GM_createElement(`
+<button id="feed-roll-back-btn" class="primary-btn feed-roll-back-btn btn-disabled">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.82843 6.99955L8.36396 9.53509L6.94975 10.9493L2 5.99955L6.94975 1.0498L8.36396 2.46402L5.82843 4.99955H13C17.4183 4.99955 21 8.58127 21 12.9996C21 17.4178 17.4183 20.9996 13 20.9996H4V18.9996H13C16.3137 18.9996 19 16.3133 19 12.9996C19 9.68584 16.3137 6.99955 13 6.99955H5.82843Z"></path></svg>
+</button>
+`);
 
-const disconnect = VM.observe(document.body, () => {
-  let feedRollBtn = document.getElementsByClassName("roll-btn")[0];
-
+window.addEventListener("load", () => {
+  const feedRollBtn = document.querySelector(".roll-btn");
   if (feedRollBtn) {
     // 处理返回上一页feed的历史内容
-    let backBtn = document.createElement("button");
     feedRollBtn.parentNode.appendChild(backBtn);
-    backBtn.outerHTML = feedRollBackBtn;
-
-    document
-      .getElementById("feed-roll-back-btn")
-      .addEventListener("click", () => {
-        let feedCards = document.getElementsByClassName("feed-card");
-        if (feedHistoryIndex == feedHistory.length) {
-          feedHistory.push(listInnerHTMLOfFeedCard(feedCards));
-        }
-        for (let fc_i = 0; fc_i < feedCards.length; fc_i++) {
-          feedCards[fc_i].innerHTML = feedHistory[feedHistoryIndex - 1][fc_i];
-        }
-        feedHistoryIndex = feedHistoryIndex - 1;
-        if (feedHistoryIndex == 0) {
-          disableElementById("feed-roll-back-btn", true);
-        }
-        disableElementById("feed-roll-next-btn", false);
-      });
-
-    // 处理返回下一页feed的历史内容
-    let nextBtn = document.createElement("div");
-    feedRollBtn.parentNode.appendChild(nextBtn);
-    nextBtn.outerHTML = feedRollNextBtn;
-
-    document
-      .getElementById("feed-roll-next-btn")
-      .addEventListener("click", () => {
-        let feedCards = document.getElementsByClassName("feed-card");
-
-        for (let fc_i = 0; fc_i < feedCards.length; fc_i++) {
-          feedCards[fc_i].innerHTML = feedHistory[feedHistoryIndex + 1][fc_i];
-        }
-
-        feedHistoryIndex = feedHistoryIndex + 1;
-        if (feedHistoryIndex == feedHistory.length - 1) {
-          disableElementById("feed-roll-next-btn", true);
-        }
-        disableElementById("feed-roll-back-btn", false);
-      });
-
-    // 处理点击换一换事件
-    feedRollBtn.id = "feed-roll-btn";
-    feedRollBtn.addEventListener("click", () => {
+    backBtn.addEventListener("click", () => {
+      let feedCards = document.getElementsByClassName("feed-card");
       if (feedHistoryIndex == feedHistory.length) {
-        let feedCards = listInnerHTMLOfFeedCard(
-          document.getElementsByClassName("feed-card")
-        );
-        feedHistory.push(feedCards);
+        feedHistory.push(listInnerHTMLOfFeedCard(feedCards));
       }
-      if (feedHistory.length > maxHistory) {
-        feedHistory.shift();
+      for (let fc_i = 0; fc_i < feedCards.length; fc_i++) {
+        feedCards[fc_i].innerHTML = feedHistory[feedHistoryIndex - 1][fc_i];
       }
-      feedHistoryIndex = feedHistory.length;
-      console.log(feedHistory);
-      disableElementById("feed-roll-back-btn", false);
-      disableElementById("feed-roll-next-btn", true);
+      feedHistoryIndex = feedHistoryIndex - 1;
+      updateBtnStatus();
     });
 
-    return true;
-  }
-});
+    // 处理返回下一页feed的历史内容
+    feedRollBtn.parentNode.appendChild(nextBtn);
+    nextBtn.addEventListener("click", () => {
+      let feedCards = document.getElementsByClassName("feed-card");
 
-function disableElementById(id, bool) {
-  if (bool) {
-    document.getElementById(id).classList.add("biliplus-disabled");
-  } else {
-    document.getElementById(id).classList.remove("biliplus-disabled");
-  }
-}
+      for (let fc_i = 0; fc_i < feedCards.length; fc_i++) {
+        feedCards[fc_i].innerHTML = feedHistory[feedHistoryIndex + 1][fc_i];
+      }
 
-function listInnerHTMLOfFeedCard(feedCardElements) {
-  let feedCardInnerHTMLs = [];
-  for (let fc of feedCardElements) {
-    feedCardInnerHTMLs.push(fc.innerHTML);
-  }
-  return feedCardInnerHTMLs;
-}
+      feedHistoryIndex = feedHistoryIndex + 1;
+      updateBtnStatus();
+    });
 
-GM_addStyle(`
+    // 处理点击换一换事件
+    feedRollBtn.addEventListener("click", () => {
+      // 等待网络请求加载完毕
+      setTimeout(() => {
+        if (feedHistoryIndex == feedHistory.length) {
+          let feedCards = listInnerHTMLOfFeedCard(
+            document.getElementsByClassName("feed-card")
+          );
+          feedHistory.push(feedCards);
+        }
+        if (feedHistory.length > maxHistory) {
+          feedHistory.shift();
+        }
+
+        feedHistoryIndex = feedHistory.length;
+        updateBtnStatus();
+      });
+    });
+  }
+
+  GM_addStyle(`
   .feed-roll-back-btn {
     flex-direction: column;
     margin-left: 0 !important;
@@ -135,9 +100,42 @@ GM_addStyle(`
     margin-right: 0;
     margin-bottom: 0px;
   }
-  .biliplus-disabled{
+  .btn-disabled{
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
   }
 `);
+});
+
+function updateBtnStatus() {
+  if (feedHistoryIndex <= 0) {
+    backBtn.classList.add("btn-disabled");
+  } else {
+    backBtn.classList.remove("btn-disabled");
+  }
+
+  if (feedHistoryIndex >= feedHistory.length - 1) {
+    nextBtn.classList.add("btn-disabled");
+  } else {
+    nextBtn.classList.remove("btn-disabled");
+  }
+}
+function listInnerHTMLOfFeedCard(feedCardElements) {
+  let feedCardInnerHTMLs = [];
+  for (let fc of feedCardElements) {
+    feedCardInnerHTMLs.push(fc.innerHTML);
+  }
+  return feedCardInnerHTMLs;
+}
+function GM_addStyle(cssText) {
+  const style = document.createElement("style");
+  style.lang = "text/css";
+  style.textContent = cssText;
+  document.head.appendChild(style);
+}
+function GM_createElement(htmlString) {
+  const element = document.createElement("div");
+  element.innerHTML = htmlString;
+  return element.firstElementChild;
+}
