@@ -5,8 +5,9 @@
 // @run-at      document-idle
 // @grant       GM_addStyle
 // @version     1.0
-// @author      -
-// @description drak mode with bilibili
+// @author      mesimpler
+// @license     MIT
+// @description 提供b站黑夜模式。(drak mode with bilibili.)
 // ==/UserScript==
 
 GM_addStyle(`

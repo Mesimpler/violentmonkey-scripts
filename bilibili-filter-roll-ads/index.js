@@ -5,8 +5,9 @@
 // @run-at      document-start
 // @grant       none
 // @version     1.0
-// @author      -
-// @description 2024/4/6 02:18:21
+// @author      mesimpler
+// @license     MIT
+// @description 过滤b站换一换中的广告。(filter bilibili roll ads.)
 // ==/UserScript==
 
 window.fetch = new Proxy(window.fetch, {

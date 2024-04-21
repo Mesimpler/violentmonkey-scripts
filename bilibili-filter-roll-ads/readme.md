@@ -6,4 +6,4 @@
 
 ## 安装
 
-[Greasy Fork](https://greasyfork.org/zh-CN/scripts/490584-bilibili-roll-history)
+[Greasy Fork](https://greasyfork.org/zh-CN/scripts/493050-bilibili-filter-roll-ads)
