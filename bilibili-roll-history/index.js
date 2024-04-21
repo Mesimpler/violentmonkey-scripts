@@ -7,7 +7,7 @@
 // @version     1.1
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
-// @description add roll history btn in bilibili home page.
+// @description 为你的b站首页添加换一换回溯历史功能。(add roll history btn in bilibili home page.)
 // @license     MIT
 // ==/UserScript==
 const feedHistory = [];
