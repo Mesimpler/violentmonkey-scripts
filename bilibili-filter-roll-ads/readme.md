@@ -7,3 +7,12 @@
 ## 安装
 
 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/493050-bilibili-filter-roll-ads)
+
+### 更新历史
+
+**2024/4/26 v1.1**
+
+修复 ps 参数错误问题。  
+不再剪切数组长度。
+
+**2024/4/21 v1.0**

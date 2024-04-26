@@ -4,11 +4,13 @@
 // @match       https://www.bilibili.com/
 // @run-at      document-start
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      mesimpler
 // @license     MIT
 // @description 过滤b站换一换中的广告。(filter bilibili roll ads.)
 // ==/UserScript==
+
+const feedNum = 12;
 
 window.fetch = new Proxy(window.fetch, {
   apply: function (target, thisArg, argumentsList) {
@@ -23,10 +25,10 @@ window.fetch = new Proxy(window.fetch, {
         ...options,
         params: {
           ...options.params,
-          ps: 12,
+          ps: feedNum,
         },
       };
-      const modifiedUrl = url.replace("ps=10", "ps=20");
+      const modifiedUrl = url.replace("ps=10", `ps=${feedNum}`);
 
       return Reflect.apply(target, thisArg, [
         modifiedUrl,
@@ -35,8 +37,7 @@ window.fetch = new Proxy(window.fetch, {
         const contentType = response.headers.get("content-type");
         if (contentType && contentType.indexOf("application/json") !== -1) {
           return response.json().then((res) => {
-            res.data.item = res.data.item.filter((video) => video.id != 0);
-            res.data.item = res.data.item.slice(0, 10);
+            res.data.item = res.data.item.filter((video) => video.id !== 0);
             return new Response(JSON.stringify(res), response);
           });
         }
