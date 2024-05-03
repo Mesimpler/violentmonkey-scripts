@@ -2,27 +2,71 @@
 // @name        bilibili-dark-theme
 // @namespace   Violentmonkey Scripts
 // @match       https://www.bilibili.com/*
+// @match       https://t.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.0
+// @version     1.1
 // @author      mesimpler
 // @license     MIT
 // @description 提供b站黑夜模式。(drak mode with bilibili.)
 // ==/UserScript==
 
 GM_addStyle(`
-  * {
-    border: none !important;
-  }
   :root {
-    --Wh0: #242424;       /* 网页背景 */
-    --Ga10: #f1f2f3;      /* 字体 */
-    --Ga11: #333333;      /* 换一换按钮背景 */
-    --Ga2: #484848;       /* 换一换按钮hover */
-    --Ga0_s: #333333;     /* 分区按钮背景 */
-    --Ga7: #a4a4a4;       /* 分区按钮字体 */
-    --Ga12: #4a4a4a;      /* 稍后再看按钮hover背景 */
-    --Ga1: #242424;       /* 悬浮后搜索框背景色 */
-    --Ga1_s: #333333;     /* 搜索框与骨架屏背景色 */
+    --Lb5: #0087b7 !important;
+    --Wh0: #242424 !important;
+    --Ga10: #d1d1d1 !important;
+    --Ga11: #333333 !important;
+    --Ga2: #484848 !important;
+    --Ga0_s: #333333 !important;
+    --Ga7: #a4a4a4 !important;
+    --Ga12: #4a4a4a !important;
+    --Ga1: #242424 !important;
+    --Ga1_s: #333333 !important;
+  }
+
+  /* 回复框*/
+  .reply-box-warp {
+    border: 1px solid #626262 !important;
+  }
+
+  /* 标题栏阴影 */
+  .mini-header {
+    box-shadow: 0 2px 4px #ffffff1c;
   }
 `);
+
+/* 动态 */
+if (
+  location.href.startsWith("https://www.bilibili.com/opus/") ||
+  location.href.startsWith("https://t.bilibili.com/")
+) {
+  // 移除背景图片
+  const bg = document.querySelector(".bg");
+  if (bg) {
+    bg.remove();
+  }
+
+  GM_addStyle(`
+    :root {
+      --Wh0: #333333 !important;
+      --Ga0: #484848 !important;
+    }
+
+    /* 背景遮罩 */
+    .bgc {
+      background-color: var(--Ga1) !important;
+    }
+
+    /* 动态UP名字 */
+    .bili-dyn-up-list__item__name {
+      color: var(--Ga5) !important;
+    }
+
+    /* 推荐视频商品卡片 */
+    .bili-dyn-card-ugc__wrap,
+    .bili-dyn-card-goods__wrap {
+      background-color: var(--Ga1) !important;
+    }
+  `);
+}

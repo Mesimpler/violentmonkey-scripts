@@ -7,3 +7,11 @@
 ## 安装
 
 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/493049-bilibili-dark-theme)
+
+## 更新历史
+
+**v1.1 2024/5/4**
+
+添加动态页夜间模式支持
+
+**v1.0 2024/4/20**
