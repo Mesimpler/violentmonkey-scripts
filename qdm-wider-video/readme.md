@@ -7,3 +7,11 @@
 ## 安装
 
 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/494244-qdm-wider-video)
+
+## 更新历史
+
+**v1.1 2024/5/7**
+
+> 使剧集排布更加紧凑
+
+**v1.0 2024/5/6**
