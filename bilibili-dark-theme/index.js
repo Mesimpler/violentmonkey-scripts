@@ -6,7 +6,7 @@
 // @match       https://search.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.1
+// @version     1.2
 // @author      mesimpler
 // @license     MIT
 // @description 提供b站黑夜模式。(drak mode with bilibili.)
