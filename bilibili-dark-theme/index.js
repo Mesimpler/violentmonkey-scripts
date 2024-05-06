@@ -3,6 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://www.bilibili.com/*
 // @match       https://t.bilibili.com/*
+// @match       https://search.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
 // @version     1.1
@@ -15,14 +16,15 @@ GM_addStyle(`
   :root {
     --Lb5: #0087b7 !important;
     --Wh0: #242424 !important;
-    --Ga10: #d1d1d1 !important;
-    --Ga11: #333333 !important;
-    --Ga2: #484848 !important;
+    --Ga0: #333333 !important;
     --Ga0_s: #333333 !important;
-    --Ga7: #a4a4a4 !important;
-    --Ga12: #4a4a4a !important;
     --Ga1: #242424 !important;
     --Ga1_s: #333333 !important;
+    --Ga2: #484848 !important;
+    --Ga7: #a4a4a4 !important;
+    --Ga10: #d1d1d1 !important;
+    --Ga11: #333333 !important;
+    --Ga12: #4a4a4a !important;
   }
 
   /* 回复框*/
@@ -32,7 +34,8 @@ GM_addStyle(`
 
   /* 标题栏阴影 */
   .mini-header {
-    box-shadow: 0 2px 4px #ffffff1c;
+    box-shadow: none;
+    border-bottom: 1px solid #484848;
   }
 `);
 
