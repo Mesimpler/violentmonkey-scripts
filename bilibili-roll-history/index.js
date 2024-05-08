@@ -4,7 +4,7 @@
 // @match       https://www.bilibili.com/
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.2
+// @version     1.2.1
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description 为你的b站首页添加换一换回溯历史功能。(add roll history btn in bilibili home page.)
@@ -87,7 +87,7 @@ GM_addStyle(`
   margin-left: 0 !important;
   height: 40px !important;
   width: 40px;
-  padding: 9px;
+  padding: 11px;
   margin-top: 6px;
 }
 .feed-roll-back-btn svg {

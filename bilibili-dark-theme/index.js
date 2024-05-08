@@ -6,7 +6,7 @@
 // @match       https://search.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.2
+// @version     1.2.1
 // @author      mesimpler
 // @license     MIT
 // @description 提供b站黑夜模式。(drak mode with bilibili.)
@@ -38,6 +38,16 @@ GM_addStyle(`
     border-bottom: 1px solid #484848;
   }
 `);
+
+/* 播放页 */
+if (location.href.startsWith("https://www.bilibili.com/video")) {
+  GM_addStyle(`
+    /* 弹幕输入框 */
+    .bpx-player-video-inputbar {
+      background-color: #333 !important;
+    }
+  `);
+}
 
 /* 动态 */
 if (
