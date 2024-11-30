@@ -4,47 +4,42 @@
 // @match       https://www.bilibili.com/
 // @run-at      document-start
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      mesimpler
 // @license     MIT
 // @description 过滤b站换一换中的广告。(filter bilibili roll ads.)
 // ==/UserScript==
 
+const rmcd = "//api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd";
 const feedNum = 12;
 
 window.fetch = new Proxy(window.fetch, {
   apply: function (target, thisArg, argumentsList) {
-    if (
-      argumentsList[0].startsWith(
-        "https://api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd"
-      )
-    ) {
-      const url = argumentsList[0];
-      const options = argumentsList[1];
-      const modifiedOptions = {
+    const [url, options] = argumentsList;
+
+    // 请求命中
+    if (url.includes(rmcd)) {
+      const hookUrl = url.replace("ps=10", `ps=${feedNum}`);
+      const hookOptions = {
         ...options,
         params: {
           ...options.params,
           ps: feedNum,
         },
       };
-      const modifiedUrl = url.replace("ps=10", `ps=${feedNum}`);
 
-      return Reflect.apply(target, thisArg, [
-        modifiedUrl,
-        modifiedOptions,
-      ]).then((response) => {
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.indexOf("application/json") !== -1) {
+      return Reflect.apply(target, thisArg, [hookUrl, hookOptions]).then(
+        (response) => {
           return response.json().then((res) => {
+            // 过滤广告特征
             res.data.item = res.data.item.filter((video) => video.id !== 0);
             return new Response(JSON.stringify(res), response);
           });
         }
-        return response;
-      });
+      );
     }
 
-    return Reflect.apply(...arguments);
+    // 调用原始 fetch
+    return Reflect.apply(target, thisArg, argumentsList);
   },
 });
