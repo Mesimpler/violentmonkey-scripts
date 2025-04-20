@@ -14,3 +14,9 @@
 
 > 直播与个人主页覆盖
 > 动态页直播预约卡片覆盖
+
+## 其它脚本
+
+[bilibili-roll-history](https://greasyfork.org/zh-CN/scripts/490584-bilibili-roll-history)：为你的 b 站首页添加换一换回溯历史功能。
+
+[bilibili-filter-roll-ads](https://greasyfork.org/zh-CN/scripts/493050-bilibili-filter-roll-ads)：过滤 b 站换一换中的广告。

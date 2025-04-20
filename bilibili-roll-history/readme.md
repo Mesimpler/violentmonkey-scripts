@@ -19,4 +19,8 @@
 
 > 性能优化
 
-**v1.0**
+## 其它脚本
+
+[bilibili-filter-roll-ads](https://greasyfork.org/zh-CN/scripts/493050-bilibili-filter-roll-ads)：过滤 b 站换一换中的广告。
+
+[bilibili-dark-theme](https://greasyfork.org/zh-CN/scripts/493049-bilibili-dark-theme)：提供 b 站黑夜模式。

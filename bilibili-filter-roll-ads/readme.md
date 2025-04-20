@@ -8,7 +8,7 @@
 
 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/493050-bilibili-filter-roll-ads)
 
-### 更新历史
+## 更新历史
 
 **2024/11/30 v1.2**
 
@@ -19,4 +19,8 @@
 修复 ps 参数错误问题。  
 不再剪切数组长度。
 
-**2024/4/21 v1.0**
+## 其它脚本
+
+[bilibili-roll-history](https://greasyfork.org/zh-CN/scripts/490584-bilibili-roll-history)：为你的 b 站首页添加换一换回溯历史功能。
+
+[bilibili-dark-theme](https://greasyfork.org/zh-CN/scripts/493049-bilibili-dark-theme)：提供 b 站黑夜模式。
