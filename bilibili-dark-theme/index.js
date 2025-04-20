@@ -75,6 +75,11 @@ if (
     .bili-dyn-up-list__item__name {
       color: var(--Ga5) !important;
     }
+
+    /* 直播预约卡片 */
+    .bili-dyn-card-reserve__card {
+      background-color: var(--Ga0) !important;
+    }
  
     /* 推荐视频商品卡片 */
     .bili-dyn-card-ugc__wrap,
