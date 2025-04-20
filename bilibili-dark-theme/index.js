@@ -4,9 +4,11 @@
 // @match       https://www.bilibili.com/*
 // @match       https://t.bilibili.com/*
 // @match       https://search.bilibili.com/*
+// @match       https://space.bilibili.com/*
+// @match       https://live.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.2.2
+// @version     1.2.3
 // @author      mesimpler
 // @license     MIT
 // @description 提供b站黑夜模式。(drak mode with bilibili.)
