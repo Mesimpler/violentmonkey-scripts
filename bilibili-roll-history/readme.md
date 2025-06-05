@@ -3,7 +3,7 @@
 > 为 b 站“摇一摇”功能添加回溯历史功能  
 > powerd by [biliplus](https://github.com/0xlau/biliplus)
 
-[![bilibili-roll-history-preview.png](https://i.postimg.cc/nr8Zg1S4/bilibili-roll-history-preview.png)](https://postimg.cc/Fdx2J04z)
+[![2025-06-06-051557.png](https://i.postimg.cc/s2cS9Hgt/2025-06-06-051557.png)](https://postimg.cc/R3WNvRfR)
 
 ## 安装
 
