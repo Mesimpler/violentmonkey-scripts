@@ -8,7 +8,7 @@
 // @match       https://live.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.2.3
+// @version     1.2.4
 // @author      mesimpler
 // @license     MIT
 // @description 提供b站黑夜模式。(drak mode with bilibili.)
@@ -22,14 +22,18 @@ GM_addStyle(`
     --Wh0: #242424 !important;
     --Ga0: #333333 !important;
     --Ga0_s: #333333 !important;
-    --Ga1: #242424 !important;
+    --Ga1: #1c1c1c !important;
     --Ga1_s: #333333 !important;
     --Ga2: #484848 !important;
     --Ga7: #a4a4a4 !important;
+    --Ga9: #a1a1a1 !important;
     --Ga10: #d1d1d1 !important;
     --Ga11: #333333 !important;
     --Ga12: #4a4a4a !important;
     --Ga13_s: #3d3e3e !important;
+
+    /* 评论加载遮罩 */
+    --Wh0_rgb: 61, 61, 61;
 
     /* 回复框*/
     .reply-box-warp {
