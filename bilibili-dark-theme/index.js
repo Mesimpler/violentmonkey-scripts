@@ -8,7 +8,7 @@
 // @match       https://live.bilibili.com/*
 // @run-at      document-idle
 // @grant       GM_addStyle
-// @version     1.2.4
+// @version     1.2.5
 // @author      mesimpler
 // @license     MIT
 // @description 提供b站黑夜模式。(drak mode with bilibili.)
@@ -92,3 +92,25 @@ if (
     }
   `);
 }
+
+/* 稍后再看画中画 */
+documentPictureInPicture.addEventListener("enter", (event) => {
+  const pipWindow = event.window;
+  pipWindow.document.documentElement.style.backgroundColor = "#242424";
+  const style = GM_addStyle(`
+    :root {
+      --Ga11: #333333 !important;
+      --Ga10: #d1d1d1 !important;
+      --Ga13_s: #3d3e3e !important;
+      --Ga2: #484848 !important;
+      --Lb5: #0087b7 !important;
+    }
+
+    body {
+      background-color: var(--Ga11)
+    }
+  `)
+
+  // 将样式添加到画中画窗口的head中
+  pipWindow.document.head.appendChild(style);
+});
