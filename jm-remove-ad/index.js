@@ -9,7 +9,6 @@
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description JM漫画去广告
-// @description 2025/6/21 08:57:06
 // ==/UserScript==
 
 function applyToElement(selector, callback) {
