@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name        jm-remove-ad
 // @namespace   Violentmonkey Scripts
+// @match       https://18comic.vip/
 // @match       https://18comic.vip/*
 // @grant       GM_addStyle
 // @version     2.0.0
