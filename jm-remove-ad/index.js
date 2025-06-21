@@ -4,7 +4,7 @@
 // @match       https://18comic.vip/
 // @match       https://18comic.vip/*
 // @grant       GM_addStyle
-// @version     2.0.0
+// @version     2.1.0
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description JM漫画去广告
@@ -42,10 +42,7 @@ GM_addStyle(`
 const ADS_SELECTORS = [
   `[data-group="photo_center_games_1"]`, //最上面的广告
   `[data-group="photo_center_1"]`, //中间的广告
-  `[data-group="photo_bottom1"]`, //最底下的广告
-  `[data-group="photo_bottom2"]`, //最底下的广告
-  `[data-group="photo_bottom3"]`, //最底下的广告
-  `[data-group="photo_bottom4"]`, //最底下的广告
+  `[data-group*="photo_bottom"]`, //最底下的广告
   `[style*="text-align:center"][style*="margin: 0 auto"][style*="max-width: 100%"]`, //播放完的广告
   ".float_right", //靠右的三个操作按钮
   ".center.scramble-page.thewayhome", //回家的路
@@ -53,20 +50,15 @@ const ADS_SELECTORS = [
   `[data-group="web_comicforum_middle1"]`, // 评论区底部追加广告
   ".ph-active:has(.meun-video)", // 小电影Tab
   ".ph-active:has(.meun-game)", // 游戏Tab
+  `.ph-active:has(a[href="/veteran"])`, // 好站推荐Tab
   ".mobile-ad",
+  ".header-menu-block", // 个人页 标题栏
+  ".user-daily-mission", // 个人页日常任务
   `div[class$="b_sticky2"]`,
-  `[data-group="album_related1"]`,
-  `[data-group="album_related2"]`,
-  `[data-group="album_related3"]`,
-  `[data-group="album_related4"]`,
-  `[data-group="all_bottom1"]`,
-  `[data-group="all_bottom2"]`,
-  `[data-group="all_bottom3"]`,
-  `[data-group="all_bottom4"]`,
-  `[data-group="all_bottom5"]`,
-  `[data-group="all_bottom6"]`,
-  `[data-group="all_bottom7"]`,
-  `[data-group="all_bottom8"]`,
+  `[data-group*="album_related"]`,
+  `[data-group*="all_bottom"]`,
+  `.row:has(div[data-group*="all_albums"])`, // 搜索页底部广告
+  `.row:has(div[data-group*="list"])`, // 类别页广告
   ".top-nav",
   ".div-bf-pv",
 ];
