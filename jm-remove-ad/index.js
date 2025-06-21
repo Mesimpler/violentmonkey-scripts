@@ -3,8 +3,9 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://18comic.vip/
 // @match       https://18comic.vip/*
+// @run-at      document-start
 // @grant       GM_addStyle
-// @version     2.1.3
+// @version     2.1.4
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description JM漫画去广告
@@ -64,13 +65,7 @@ const ADS_SELECTORS = [
 ];
 
 removeElements(ADS_SELECTORS)
-
 VM.observe(document.body, () => {
   removeElements(ADS_SELECTORS)
 });
-
-
-setInterval(() => {
-  removeElements(ADS_SELECTORS)
-}, 1000)
 
