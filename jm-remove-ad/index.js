@@ -71,6 +71,7 @@ const ADS_SELECTORS = [
   ".div-bf-pv",
 ];
 
+removeElements(ADS_SELECTORS)
 VM.observe(document.body, () => {
   removeElements(ADS_SELECTORS)
 });
