@@ -5,7 +5,7 @@
 // @match       https://18comic.vip/*
 // @run-at      document-start
 // @grant       GM_addStyle
-// @version     2.1.4
+// @version     2.1.5
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description JM漫画去广告
