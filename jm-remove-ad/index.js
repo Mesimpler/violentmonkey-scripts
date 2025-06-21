@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://18comic.vip/*
 // @grant       GM_addStyle
-// @version     1.0
+// @version     1.0.1
 // @author      mesimpler
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description JM漫画去广告
@@ -37,11 +37,11 @@ GM_addStyle(`
 `)
 
 setInterval(() => {
-  applyToAllElements('div[data-show="ok"]', (el) => el.parentElement.remove())
+  applyToAllElements('div[data-show="ok"]', (el) => el.remove())
 }, 3000)
 
 // const targetNode = document.querySelector("#wrapper");
 // const disconnect = VM.observe(targetNode, () => {
-//   applyToAllElements('div[data-show="ok"]', (el) => el.parentElement.parentElement.remove())
+//   applyToAllElements('div[data-show="ok"]', (el) => el.remove())
 // });
 
