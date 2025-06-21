@@ -37,7 +37,7 @@ GM_addStyle(`
 `)
 
 setInterval(() => {
-  applyToAllElements('div[data-show="ok"]', (el) => el.parentElement.parentElement.remove())
+  applyToAllElements('div[data-show="ok"]', (el) => el.parentElement.remove())
 }, 3000)
 
 // const targetNode = document.querySelector("#wrapper");
