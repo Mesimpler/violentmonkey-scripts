@@ -63,8 +63,12 @@ const ADS_SELECTORS = [
   ".div-bf-pv",
 ];
 
+// VM.observe(document.body, () => {
+//   removeElements(ADS_SELECTORS)
+// });
+
 removeElements(ADS_SELECTORS)
-VM.observe(document.body, () => {
+setInterval(() => {
   removeElements(ADS_SELECTORS)
-});
+}, 2800)
 
