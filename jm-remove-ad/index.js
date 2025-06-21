@@ -10,8 +10,7 @@
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description JM漫画去广告
 // ==/UserScript==
-(function () {
-  function applyToElement(selector, callback) {
+function applyToElement(selector, callback) {
     const element = document.querySelector(selector)
     if (element) callback(element);
   }
@@ -74,4 +73,3 @@
   }
 
   window.addEventListener("load", removeElements(ADS_SELECTORS));
-})();
