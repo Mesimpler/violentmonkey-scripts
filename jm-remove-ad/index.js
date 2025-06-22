@@ -46,6 +46,7 @@ function applyToElement(selector, callback) {
     ".center.scramble-page.thewayhome", //回家的路
     `[data-group="album_detail"]`, // 本子页Tag部分广告贴片
     `[data-group="web_comicforum_middle1"]`, // 评论区底部追加广告
+    `.float_right>div:has(a[href="#app_modal"])`, // app下载按钮
     ".ph-active:has(.meun-video)", // 小电影Tab
     ".ph-active:has(.meun-game)", // 游戏Tab
     `.ph-active:has(a[href="/veteran"])`, // 好站推荐Tab
