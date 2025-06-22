@@ -43,7 +43,6 @@ function applyToElement(selector, callback) {
     `[data-group="photo_center_1"]`, //中间的广告
     `[data-group*="photo_bottom"]`, //最底下的广告
     `[style*="text-align:center"][style*="margin: 0 auto"][style*="max-width: 100%"]`, //播放完的广告
-    ".float_right", //靠右的三个操作按钮
     ".center.scramble-page.thewayhome", //回家的路
     `[data-group="album_detail"]`, // 本子页Tag部分广告贴片
     `[data-group="web_comicforum_middle1"]`, // 评论区底部追加广告
