@@ -58,8 +58,6 @@ function applyToElement(selector, callback) {
     `[data-group*="all_bottom"]`,
     `.row:has(div[data-group*="all_albums"])`, // 搜索页底部广告
     `.row:has(div[data-group*="list"])`, // 类别页广告
-    ".top-nav",
-    ".div-bf-pv",
   ];
 
   removeElements(ADS_SELECTORS)
