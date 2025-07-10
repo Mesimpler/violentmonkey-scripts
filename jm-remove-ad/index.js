@@ -46,10 +46,10 @@ GM_addStyle(`
     padding-top: 70px !important;
   }
 
-  /* 返回顶部悬浮按钮 
+  /* 返回顶部悬浮按钮 */
   .float_right {
     top: 80% !important;
-  }*/
+  }
 
   /* 底部Tab补齐 */
   .ph-bottom li {
@@ -83,7 +83,8 @@ const ADS_SELECTORS = [
   `.row:has(div[data-group*="album_related"])`, // 本子详情页 底部广告
 
   `[data-group*="photo_center"]`, // 本子阅读页 顶部广告
-  `.row:has(div[data-group*="photo_bottom"])` // 本子阅读页 底部广告
+  `.row:has(div[data-group*="photo_bottom"])`, // 本子阅读页 底部广告
+  `div:has(iframe[scrolling="no"])` // 本子阅读页 底部弹窗广告
 ];
 
 removeElements(ADS_SELECTORS)
