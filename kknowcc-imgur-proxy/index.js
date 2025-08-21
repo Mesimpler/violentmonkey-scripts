@@ -5,6 +5,7 @@
 // @grant       GM_xmlhttpRequest
 // @version     1.0
 // @author      Mesimpler
+// @license     MIT
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @description kk.now.cc使用的是imgur图床，这个图床将大多数IP列入了黑名单导致图片无法正常加载，本脚本将论坛中所有imgur的图片链接替换成其镜像网站noobzone的链接以解决图片显示问题。
 // ==/UserScript==
